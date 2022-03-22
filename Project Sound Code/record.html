@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/animated-carousel.css">
+    <link rel="stylesheet" href="assets/css/record.css">
+    <style>
+    body{
+        background-color: black;
+        height: 100vh;
+    }
+    .card::before {
+    background: url('assets/img/curvy-background-layers-sound-waves_23-2148474206.webp');
+    background-position: 40%;
+    background-size: cover;
+    background-attachment: fixed;
+    }
+
+    .background {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+        position: fixed;
+    }
+
+    h1, h2 {
+        font-family: 'Roboto', sans-serif;
+        color: rgb(206, 206, 206);
+    }
+
+    h1 {
+        font-size: 4vmin;
+        letter-spacing: .6vmin;
+        text-transform: uppercase;
+    }
+
+    h2 {
+        font-size: 2.7vmin;
+        letter-spacing: .3vmin;
+    }
+
+    .card {
+        position: relative;
+        width: 70vmin;
+        height: 50vmin;
+        background: rgba(255, 255, 255, 0.2);
+        border: .1vmin solid rgba(219, 219, 219, 0.1);
+        border-radius: 4vmin;
+        overflow: hidden;
+        box-shadow: 0 .5vmin 1vmin rgba(0, 0, 0, .4);
+    }
+
+    .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        filter: blur(4.5vmin);
+        margin: -5vmin;
+    }
+
+    .innercard {
+        position: relative;
+        width: 70vmin;
+        height: 50vmin;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text {
+        position: absolute;
+        top: 16vmin;
+    }
+
+    .button {
+        position: absolute;
+        bottom: 18vmin;
+    }
+
+    button {
+        width: 35vmin;
+        height: 16vmin;
+        background: rgb(64, 93, 189);
+        border: none;
+        border-radius: 5vmin;
+        outline: transparent;
+        cursor: pointer;
+        margin-top: 150px;
+    }
+
+    button:hover {
+        background: rgb(92, 128, 226);
+        box-shadow: 0 0 .5vmin #fff;
+    }
+
+    @media (min-width: 731px) {
+
+        h1 {
+            font-size: 3vmin;
+        }
+
+        h2 {
+            font-size: 2.4vmin;
+        }
+
+        .card, .innercard {
+            width: 60vmin;
+            height: 45vmin;
+        }
+
+        .text {
+            top: 15vmin;
+        }
+
+        .button {
+            bottom: 16vmin;
+        }
+
+        button {
+            width: 25vmin;
+            height: 7vmin;
+        }
+    }
+
+    </style>
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <!--Font Awesome Icon CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <title>Project SoundCode || Technovators Challenge</title>
+</head>
+<body>
+    <section class="section" id="record">
+        <h2 class="record__subtitle" id="recordTEXT">TAP TO FIND AUDIO</h2>
+        <div class=" record" style="position: sticky; margin-top: 60px;" id="myDIV" onclick="myFunction()">
+            <i class="fas fa-microphone"></i>
+        </div>
+        <div class="background">
+            <div class="card">
+                <div class="innercard">
+                    <div class="text">
+                         <h1>Title</h1>
+                         <h1>Artist</h1>
+                         <h1>Audio Image</h1>
+                    </div>
+                         <button>
+                             <a href="/index.html"><h2>Full audio</h2></a>
+                         </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        function myFunction() {
+        var element = document.getElementById("myDIV");
+        element.classList.toggle("pulse");
+       }
+    </script>
+</body>
