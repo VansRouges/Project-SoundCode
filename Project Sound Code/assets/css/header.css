@@ -227,7 +227,8 @@ img{
     overflow: hidden;
 }
 .about__img img{
-    width: 100px;
+    align-self: center;
+    margin-bottom: 25px;
 }
 .about__subtitle{
     font-size: var(--h2-font-size);
