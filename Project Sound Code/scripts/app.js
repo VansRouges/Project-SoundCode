@@ -19,7 +19,7 @@ function setCurrentSong({title, artist, link, score}) {
 
   titleElement.innerText = title;
   artistElement.innerText = artist ?? '_';
-  linkElement.innerText = link ?? '_'
+  linkElement.innerText = link ? `Get ${title}` : '_'
   linkElement.href = link ?? ''
   scoreElement.innerText =  score;
 
@@ -104,11 +104,13 @@ function uploadFile() {
   });
 }
 
-window.onload = function init() {
+window.onload = async function init() {
   try {
+
+    await navigator.mediaDevices.getUserMedia({video: false, audio: true})
     // webkit shim
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    navigator.getUserMedia = ( navigator.mediaDevices || navigator.getUserMedia ||
+    navigator.getUserMedia = ( navigator.getUserMedia ||
       navigator.webkitGetUserMedia ||
       navigator.mozGetUserMedia ||
       navigator.msGetUserMedia);
