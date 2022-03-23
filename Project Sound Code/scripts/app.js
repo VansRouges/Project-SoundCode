@@ -93,7 +93,7 @@ function uploadFile() {
       setStatus(match? "Got it! 🎉 Successfully located song" : "Couldn't find this one, please try again")
 
       if (match) {
-        setCurrentSong({title: match.title, artist: match.artist, link: match.url})
+        setCurrentSong({title: match.title, artist: match.artist, link: match.url, score: match.score})
       }
 
       console.log(match);
@@ -108,7 +108,7 @@ window.onload = function init() {
   try {
     // webkit shim
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    navigator.getUserMedia = ( navigator.getUserMedia ||
+    navigator.getUserMedia = ( navigator.mediaDevices || navigator.getUserMedia ||
       navigator.webkitGetUserMedia ||
       navigator.mozGetUserMedia ||
       navigator.msGetUserMedia);
