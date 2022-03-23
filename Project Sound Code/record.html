@@ -143,31 +143,53 @@
 </head>
 <body>
     <section class="section" id="record">
-        <h2 class="record__subtitle" id="recordTEXT">TAP TO FIND AUDIO</h2>
+        <h2 class="record__subtitle mt-5 mb-3" id="recordTEXT">Tap to Find Song 🎵</h2>
         <div class=" record" style="position: sticky; margin-top: 60px;" id="myDIV" onclick="myFunction()">
             <i class="fas fa-microphone"></i>
         </div>
-        <div class="background">
-            <div class="card">
-                <div class="innercard">
-                    <div class="text">
-                         <h1>Title</h1>
-                         <h1>Artist</h1>
-                         <h1>Audio Image</h1>
-                    </div>
-                         <button>
-                             <a href="/index.html"><h2>Full audio</h2></a>
-                         </button>
-                </div>
-            </div>
+        <div class="container mt-5 pt-5">
+        <div class="container mt-0 pt-5">
+            <h3 id="search-status" class="mb-4">
+                HI 👋🏽, click the mic to search song
+            </h3>
+            <table class="table table-dark d-none" id="matched-song">
+                <thead>
+                <tr>
+                    <th scope="title">Song Title</th>
+                    <th scope="match-score">Score</th>
+                    <th scope="artist">Artist</th>
+                    <th scope="link">Link</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td id="song-title">Mark</td>
+                    <td id="match-score">100</td>
+                    <td id="song-artist">Otto</td>
+                    <td><a href="" id="song-link" class="text-truncate" target="_blank">Link</a></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
+
     </section>
 
 
     <script>
+      let timeout;
         function myFunction() {
-        var element = document.getElementById("myDIV");
-        element.classList.toggle("pulse");
+        let element = document.getElementById("myDIV");
+        if (!element.classList.contains('pulse')) {
+          element.classList.add("pulse");
+          startRecording(element)
+          setTimeout(() => {
+            stopRecording(element)
+            element.classList.remove('pulse');
+          }, 7000)
+        }
        }
     </script>
+    <script src="scripts/record/jquery-1.11.0.min.js"></script>
+    <script src="scripts/record/recordmp3.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
